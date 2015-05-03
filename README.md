@@ -15,6 +15,12 @@ JavaScript code (a TypeScript version is planned), so you get code completion,
 parameter info, argument and return type hinting, wrong type assignment check,
 and other goodies the IDE of your choice supports.
 
+## Contents
+
+Currently, the repository has the following contents:
+
+* Base types: `DOMRequest` and `DOMCursor`.
+
 ## Usage
 
 Clone/download this repository or just the `fxos-ide-helper.js` file, then tell
