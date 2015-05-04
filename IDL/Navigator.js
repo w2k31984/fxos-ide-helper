@@ -23,6 +23,11 @@ Navigator.prototype.getDeviceStorages = function (storageName) {};
 Navigator.prototype.mozSetMessageHandler = function (type, handler) {};
 
 /**
+ * @type {ContactManager}
+ */
+Navigator.prototype.mozContacts = null;
+
+/**
  * @inheritDoc
  */
 navigator.getDeviceStorage = Navigator.prototype.getDeviceStorage;
@@ -36,3 +41,8 @@ navigator.getDeviceStorages = Navigator.prototype.getDeviceStorages;
  * @inheritDoc
  */
 navigator.mozSetMessageHandler = Navigator.prototype.mozSetMessageHandler;
+
+/**
+ * @inheritDoc
+ */
+navigator.mozContacts = Navigator.prototype.mozContacts;

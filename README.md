@@ -22,6 +22,7 @@ Currently, the repository has the following contents:
 * Base types: `DOMRequest` and `DOMCursor`.
 * Device storage types: `navigator.getDeviceStorage` and related interfaces.
 * Web activities types: `MozActivity` class, `navigator.mozSetMessageHandler`.
+* Web contacts types: `mozContact` class, `navigator.mozContacts`.
 
 ## Usage
 
