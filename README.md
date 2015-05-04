@@ -20,6 +20,7 @@ and other goodies the IDE of your choice supports.
 Currently, the repository has the following contents:
 
 * Base types: `DOMRequest` and `DOMCursor`.
+* Device storage types: `navigator.getDeviceStorage` and related interfaces.
 
 ## Usage
 
@@ -39,6 +40,8 @@ your editor/IDE to treat that file (or the entire repository) as a library.
 * Support for [Adobe Brackets](http://brackets.io) was, for the moment, left in
   *nothing*. Is there any plugin that reads JSDoc and helps with code completion
   for that IDE?
+* Started support for [Adobe Brackets](http://brackets.io), now `navigator.*`
+  works, but return types isn't being analyzed yet.
 
 ## License
 
