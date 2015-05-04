@@ -311,6 +311,40 @@ LockedFile.prototype.flush = function () {};
 LockedFile.prototype.abort = function () {};
 
 /**
+ * @constructor
+ * @param {MozActivityOptions} options
+ * @extends DOMRequest
+ */
+function MozActivity(options) {}
+
+/**
+ * @typedef {{}} MozActivityOptions
+ * @property {string} name
+ * @property {{}} [data]
+ */
+
+/**
+ * @interface
+ */
+function MozActivityRequestHandler() {}
+
+/**
+ * @const
+ * @type {MozActivityOptions}
+ */
+MozActivityRequestHandler.prototype.source = null;
+
+/**
+ * @param {*} answer
+ */
+MozActivityRequestHandler.prototype.postResult = function (answer) {};
+
+/**
+ * @param {string} message
+ */
+MozActivityRequestHandler.prototype.postError = function (message) {};
+
+/**
  * @interface
  * @type {navigator}
  */
@@ -329,6 +363,12 @@ Navigator.prototype.getDeviceStorage = function (storageName) {};
 Navigator.prototype.getDeviceStorages = function (storageName) {};
 
 /**
+ * @param {string} type activity|*
+ * @param {function(MozActivityRequestHandler|*)} handler
+ */
+Navigator.prototype.mozSetMessageHandler = function (type, handler) {};
+
+/**
  * @inheritDoc
  */
 navigator.getDeviceStorage = Navigator.prototype.getDeviceStorage;
@@ -337,3 +377,8 @@ navigator.getDeviceStorage = Navigator.prototype.getDeviceStorage;
  * @inheritDoc
  */
 navigator.getDeviceStorages = Navigator.prototype.getDeviceStorages;
+
+/**
+ * @inheritDoc
+ */
+navigator.mozSetMessageHandler = Navigator.prototype.mozSetMessageHandler;
