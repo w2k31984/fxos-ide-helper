@@ -645,6 +645,11 @@ Navigator.prototype.mozSetMessageHandler = function (type, handler) {};
 Navigator.prototype.mozContacts = null;
 
 /**
+ * @type {TCPSocket}
+ */
+Navigator.prototype.mozTCPSocket = null;
+
+/**
  * @inheritDoc
  */
 navigator.getDeviceStorage = Navigator.prototype.getDeviceStorage;
@@ -663,3 +668,172 @@ navigator.mozSetMessageHandler = Navigator.prototype.mozSetMessageHandler;
  * @inheritDoc
  */
 navigator.mozContacts = Navigator.prototype.mozContacts;
+
+/**
+ * @inheritDoc
+ */
+navigator.mozTCPSocket = Navigator.prototype.mozTCPSocket;
+
+/**
+ * @interface
+ */
+function TCPServerSocket() {}
+
+/**
+ * @const
+ * @type {number}
+ */
+TCPServerSocket.prototype.localPort = 0;
+
+/**
+ * @type {function(TCPSocket)}
+ */
+TCPServerSocket.prototype.onconnect = null;
+
+/**
+ * @type {function(Event)}
+ */
+TCPServerSocket.prototype.onerror = null;
+
+/**
+ * @type {function()}
+ */
+TCPServerSocket.prototype.close = function () {};
+
+/**
+ * @interface
+ * @extends Event
+ */
+function TCPSocketEvent() {}
+
+/**
+ * @type {TCPSocket}
+ */
+TCPSocketEvent.prototype.target = null;
+
+/**
+ * open|error|data|drain|close
+ *
+ * @type {string}
+ */
+TCPSocketEvent.prototype.type = '';
+
+/**
+ * @type {string|ArrayBuffer|null}
+ */
+TCPSocketEvent.prototype.data = null;
+
+/**
+ * @interface
+ */
+function TCPSocket() {}
+
+/**
+ * @const
+ * @type {string}
+ */
+TCPSocket.prototype.host = '';
+
+/**
+ * @const
+ * @type {number}
+ */
+TCPSocket.prototype.port = 0;
+
+/**
+ * @const
+ * @type {boolean}
+ */
+TCPSocket.prototype.ssl = false;
+
+/**
+ * @const
+ * @type {number}
+ */
+TCPSocket.prototype.bufferedAmount = 0;
+
+/**
+ * arraybuffer|string
+ *
+ * @const
+ * @type {string}
+ */
+TCPSocket.prototype.binaryType = '';
+
+/**
+ * connecting|open|closing|closed
+ *
+ * @const
+ * @type {string}
+ */
+TCPSocket.prototype.readyState = '';
+
+/**
+ * @type {function(TCPSocketEvent)}
+ */
+TCPSocket.prototype.onopen = null;
+
+/**
+ * @type {function(TCPSocketEvent)}
+ */
+TCPSocket.prototype.ondrain = null;
+
+/**
+ * @type {function(TCPSocketEvent)}
+ */
+TCPSocket.prototype.onerror = null;
+
+/**
+ * @type {function(TCPSocketEvent)}
+ */
+TCPSocket.prototype.ondata = null;
+
+/**
+ * @type {function(TCPSocketEvent)}
+ */
+TCPSocket.prototype.onclose = null;
+
+/**
+ * @type {function()}
+ */
+TCPSocket.prototype.close = function () {};
+
+/**
+ * @param {string} host
+ * @param {number} port
+ * @param {{useSecureTransport?: boolean, binaryType?: string}} [options]
+ * @returns {TCPSocket}
+ */
+TCPSocket.prototype.open = function (host, port, options) {};
+
+/**
+ * @param {number} port
+ * @param {{binaryType: string}} [options]
+ * @param {number} [backlog]
+ * @returns {TCPServerSocket}
+ * @since v1.2
+ */
+TCPSocket.prototype.listen = function (port, options, backlog) {};
+
+/**
+ * @type {function()}
+ */
+TCPSocket.prototype.resume = function () {};
+
+/**
+ * @param {string|ArrayBuffer} data
+ * @param {number} [byteOffset]
+ * @param {number} [byteLength]
+ * @returns {boolean}
+ */
+TCPSocket.prototype.send = function (data, byteOffset, byteLength) {};
+
+/**
+ * @type {function()}
+ */
+TCPSocket.prototype.suspend = function () {};
+
+/**
+ * @type {function()}
+ */
+TCPSocket.prototype.upgradeToSecure = function () {};

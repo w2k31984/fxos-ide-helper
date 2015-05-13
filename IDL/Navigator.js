@@ -28,6 +28,11 @@ Navigator.prototype.mozSetMessageHandler = function (type, handler) {};
 Navigator.prototype.mozContacts = null;
 
 /**
+ * @type {TCPSocket}
+ */
+Navigator.prototype.mozTCPSocket = null;
+
+/**
  * @inheritDoc
  */
 navigator.getDeviceStorage = Navigator.prototype.getDeviceStorage;
@@ -46,3 +51,8 @@ navigator.mozSetMessageHandler = Navigator.prototype.mozSetMessageHandler;
  * @inheritDoc
  */
 navigator.mozContacts = Navigator.prototype.mozContacts;
+
+/**
+ * @inheritDoc
+ */
+navigator.mozTCPSocket = Navigator.prototype.mozTCPSocket;
