@@ -1,8 +1,12 @@
 /**
  * @interface
- * @type {navigator}
  */
 function Navigator() {}
+
+/**
+ * @type {navigator}
+ */
+Navigator.prototype = navigator;
 
 /**
  * @param {string} storageName apps|music|pictures|sdcard|videos
@@ -31,28 +35,3 @@ Navigator.prototype.mozContacts = null;
  * @type {TCPSocket}
  */
 Navigator.prototype.mozTCPSocket = null;
-
-/**
- * @inheritDoc
- */
-navigator.getDeviceStorage = Navigator.prototype.getDeviceStorage;
-
-/**
- * @inheritDoc
- */
-navigator.getDeviceStorages = Navigator.prototype.getDeviceStorages;
-
-/**
- * @inheritDoc
- */
-navigator.mozSetMessageHandler = Navigator.prototype.mozSetMessageHandler;
-
-/**
- * @inheritDoc
- */
-navigator.mozContacts = Navigator.prototype.mozContacts;
-
-/**
- * @inheritDoc
- */
-navigator.mozTCPSocket = Navigator.prototype.mozTCPSocket;
